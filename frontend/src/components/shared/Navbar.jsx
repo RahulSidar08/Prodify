@@ -22,7 +22,7 @@ const Navbar = () => {
         <nav className="bg-white dark:bg-gray-900 shadow">
             <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
                 <Link to="/" className="text-xl font-bold text-gray-800 dark:text-white">
-                    MyShop
+                    Prodify
                 </Link>
                 <div className="space-x-4 flex items-center">
                     <Link
