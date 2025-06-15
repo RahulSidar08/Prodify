@@ -45,8 +45,7 @@ PRODIFY is a full-stack e-commerce-style web app that allows users to browse pro
 Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/producthub.git
-cd producthub
+https://github.com/RahulSidar08/Prodify.git
 ```
 Backend Setup
 
