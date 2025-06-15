@@ -2,9 +2,11 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { Login } from './components/auth/Login'
 import { SignUp } from './components/auth/SignUp'
 import Home from './components/pages/Home'
-import AddProduct from './components/AddProduct'
+import AddProduct from './components/Admin/AddProduct'
 import { ProductListing } from './components/pages/ProductListing'
-
+import ProtectedRoute from './components/ProtectedRoute'
+import { AllProduct } from './components/Admin/AllProduct'
+import { EditProduct } from './components/Admin/EditProduct'
 
 const appRouter = createBrowserRouter([
   {
@@ -21,11 +23,26 @@ const appRouter = createBrowserRouter([
   },
   {
     path: '/products',
-    element: <ProductListing/>
+    element: <ProtectedRoute allowedRoles={["user"]}>
+      <ProductListing />
+    </ProtectedRoute>
   },
   {
-    path: '/admin/Add',
-    element: <AddProduct/>
+    path: "/Admin",
+    children: [
+      {
+        path: "Products",
+        element: <AllProduct/>
+      },
+      {
+        path: "Add",
+        element: <AddProduct />
+      },
+      {
+        path: "edit/:id",
+        element: <EditProduct/>
+      }
+    ]
   }
 
 ])

@@ -67,16 +67,15 @@ export const login = async (req, res) => {
         const token = createTokenAndSaveCookie(user, res)
 
         user = {
-            _id: user._id,
             userName: user.userName,
             email: user.email,
+            role : user.role
         }
 
         return res.status(200).json({
+            success: true,
             message: `Welcome back ${user.userName}`,
             user,
-            token,
-            success: true
         })
     } catch (error) {
         console.log(error);

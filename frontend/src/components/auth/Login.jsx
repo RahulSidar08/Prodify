@@ -15,9 +15,11 @@ export const Login = () => {
       const res = await axios.post("http://localhost:5000/auth/login", data , {
         withCredentials : true
       });
-      console.log(res)
-      const role = data.role;
+      localStorage.setItem("User",JSON.stringify(res.data.user))
       successHandler("LoggedIn Succefully")
+      setTimeout(() => {
+        navigate("/")
+      }, 2000);
     } catch (err) {
       setMessage(err.response?.data?.message || "Login failed");
       errorHandler(err.response?.data?.message || "Login failed")
